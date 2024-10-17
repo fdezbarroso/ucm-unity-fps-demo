@@ -1175,6 +1175,46 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 566849613584526896, guid: e680ba719bd24de4f978eec09bf4bc28, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.445
+      objectReference: {fileID: 0}
+    - target: {fileID: 566849613584526896, guid: e680ba719bd24de4f978eec09bf4bc28, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.13
+      objectReference: {fileID: 0}
+    - target: {fileID: 566849613584526896, guid: e680ba719bd24de4f978eec09bf4bc28, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.43
+      objectReference: {fileID: 0}
+    - target: {fileID: 566849613584526896, guid: e680ba719bd24de4f978eec09bf4bc28, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 566849613584526896, guid: e680ba719bd24de4f978eec09bf4bc28, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 566849613584526896, guid: e680ba719bd24de4f978eec09bf4bc28, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 566849613584526896, guid: e680ba719bd24de4f978eec09bf4bc28, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 566849613584526896, guid: e680ba719bd24de4f978eec09bf4bc28, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 566849613584526896, guid: e680ba719bd24de4f978eec09bf4bc28, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 566849613584526896, guid: e680ba719bd24de4f978eec09bf4bc28, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3214643565452403255, guid: e680ba719bd24de4f978eec09bf4bc28, type: 3}
       propertyPath: m_Name
       value: FPSController
@@ -1222,6 +1262,10 @@ PrefabInstance:
     - target: {fileID: 3214643565452770839, guid: e680ba719bd24de4f978eec09bf4bc28, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3214643565453254679, guid: e680ba719bd24de4f978eec09bf4bc28, type: 3}
+      propertyPath: field of view
+      value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 3214643565462640599, guid: e680ba719bd24de4f978eec09bf4bc28, type: 3}
       propertyPath: m_RunSpeed
