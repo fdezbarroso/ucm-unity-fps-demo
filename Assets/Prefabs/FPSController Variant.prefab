@@ -151,6 +151,9 @@ MonoBehaviour:
   _projectileSpawnpoint: {fileID: 4171179507840044973}
   _audioClip: {fileID: 8300000, guid: 73359c80dc45d96459589e5c953b34c9, type: 3}
   _delayBetweenShots: 0.1
+  _damage: 10
+  _headshotMultiplier: 2
+  _shieldMultiplier: 0
   _projectileSpeed: 50
   _instantShootParticles: {fileID: 19800004, guid: 01dd805b17923aa4cbb0f786766c283e, type: 3}
   _instantShootForce: 100
@@ -356,6 +359,9 @@ MonoBehaviour:
   _projectileSpawnpoint: {fileID: 2574393837717145239}
   _audioClip: {fileID: 8300000, guid: 73359c80dc45d96459589e5c953b34c9, type: 3}
   _delayBetweenShots: 0.3
+  _damage: 50
+  _headshotMultiplier: 2
+  _shieldMultiplier: 0
   _projectileSpeed: 20
   _instantShootParticles: {fileID: 19800004, guid: 01dd805b17923aa4cbb0f786766c283e, type: 3}
   _instantShootForce: 100

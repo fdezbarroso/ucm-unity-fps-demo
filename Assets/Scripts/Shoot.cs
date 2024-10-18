@@ -11,6 +11,16 @@ public class Shoot : MonoBehaviour
     private AudioClip _audioClip = null;
     [SerializeField]
     private float _delayBetweenShots = 1.0f;
+    [SerializeField]
+    private int _ammo = 0;
+    [SerializeField]
+    private int _maxAmmo = 1;
+    [SerializeField]
+    private int _damage = 1;
+    [SerializeField]
+    private int _headMultiplier = 2;
+    [SerializeField]
+    private int _shieldMultiplier = 0;
 
     [Header("Projectile")]
     [SerializeField]
@@ -23,9 +33,14 @@ public class Shoot : MonoBehaviour
 
     private float _remainingTimeBetweenShots = 0.0f;
 
+    private void Start()
+    {
+        _ammo = _maxAmmo;
+    }
+
     private void Update()
     {
-        if (Input.GetMouseButton(0) && _remainingTimeBetweenShots <= 0.0f)
+        if (Input.GetMouseButton(0) && _remainingTimeBetweenShots <= 0.0f && _ammo > 0)
         {
             if (_projectileRb != null)
             {
@@ -38,6 +53,8 @@ public class Shoot : MonoBehaviour
 
             AudioSource.PlayClipAtPoint(_audioClip, transform.position);
             _remainingTimeBetweenShots = _delayBetweenShots;
+            _ammo--;
+
             return;
         }
         _remainingTimeBetweenShots = Mathf.Max(_remainingTimeBetweenShots - Time.deltaTime, 0.0f);
@@ -48,6 +65,12 @@ public class Shoot : MonoBehaviour
         Rigidbody projectile = Instantiate(_projectileRb, _projectileSpawnpoint.position, Quaternion.identity);
         if (projectile != null)
         {
+            ProjectileData projectileData = projectile.GetComponent<ProjectileData>();
+            if (projectileData != null)
+            {
+                projectileData.SetData(_damage, _headMultiplier, _shieldMultiplier);
+            }
+
             projectile.velocity = _projectileSpawnpoint.forward * _projectileSpeed;
         }
     }
@@ -57,10 +80,28 @@ public class Shoot : MonoBehaviour
         if (Physics.Raycast(_projectileSpawnpoint.position, _projectileSpawnpoint.forward, out RaycastHit hit, _instantShootRange))
         {
             Instantiate(_instantShootParticles, hit.point, Quaternion.identity);
-            Rigidbody rb = hit.collider.attachedRigidbody;
+
+            Collider hitCollider = hit.collider;
+
+            Rigidbody rb = hitCollider.attachedRigidbody;
             if (rb != null && !rb.isKinematic)
             {
                 rb.AddExplosionForce(_instantShootForce, hit.point, 1.0f);
+            }
+
+            Health health = hitCollider.GetComponentInParent<Health>();
+            if (health != null)
+            {
+                int damage = _damage;
+                if (hitCollider.CompareTag("Head"))
+                {
+                    damage *= _headMultiplier;
+                }
+                else if (hitCollider.CompareTag("Shield"))
+                {
+                    damage *= _shieldMultiplier;
+                }
+                health.Damage(damage);
             }
         }
     }
